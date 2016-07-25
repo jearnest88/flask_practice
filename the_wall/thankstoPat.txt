@@ -1,0 +1,2 @@
+Big shoutouts to Pat and Nitish for this section. Nitish helped me big time with the 
+initial connection and Pat helped me get my server.py syntax down to be successfull.

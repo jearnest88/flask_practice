@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ninja Gold</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <div id='wrapper'>
+      <div id='top'>
+        <p>Your Gold: {{ session['gold_count'] }}</p>
+      </div>
+      <div class='content'>
+        <section>
+          <h1>Farm</h1>
+          <p>(earns 10-20 gold)</p>
+          <form action='/process_money' method='post'>
+            <input type='hidden' name='labor' value='farm'>
+						<input type='submit' value='Find Gold!' class='submit'>
+          </form>
+        </section>
+        <section>
+          <h1>Cave</h1>
+          <p>(earns 5-10 gold)</p>
+          <form action='/process_money' method='post'>
+            <input type='hidden' name='labor' value='cave'>
+            <input type='submit' value='Find Gold!' class='submit'>
+          </form>
+        </section>
+        <section>
+          <h1>House</h1>
+          <p>(earns 2-5 gold)</p>
+          <form action='/process_money' method='post'>
+            <input type='hidden' name='labor' value='house'>
+            <input type='submit' value='Find Gold!' class='submit'>
+          </form>
+        </section>
+        <section>
+          <h1>Casino</h1>
+          <p>(earns 0-50 gold)</p>
+          <form action='/process_money' method='post'>
+            <input type='hidden' name='labor' value='casino'>
+            <input type='submit' value='Find Gold!' class='submit'>
+          </form>
+        </section>
+        <div id='activities'>
+          <p>Activities</p>
+      			<div>
+      				{% with messages = get_flashed_messages(with_categories=true) %}
+      					{% if messages %}
+      						<ul class=flashes>
+      		    				{% for category, message in messages %}
+      		    					{% if category == 'gold' %}
+      		     						<p class="green">{{ message }}</p>
+      		     					{% elif category == 'no_gold' %}
+      		     						<p class="red">{{ message }}</p>
+      		     					{% endif %}
+      		   					{% endfor %}
+      		    			</ul>
+      		  			{% endif %}
+      				{% endwith %}
+      			</div>
+      			<form action='/reset'>
+      				<button type="submit">Reset</button>
+      			</form>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>

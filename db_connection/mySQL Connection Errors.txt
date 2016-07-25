@@ -1,0 +1,7 @@
+1. ImportError: No module named MySqldb
+2. ImportError: No module named flask_sqlalchemy
+mysql.connector.connect(host='localhost',database='mysql',user='root',password='root')
+
+
+I spent 6 hours having trouble connecting in the "DB Connection" instruction. Nitish had my back and set
+me straight so I'm good to go now.
